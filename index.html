@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitLab - Suplementos y Equipamiento Deportivo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-warning" href="index.html">FitLab ⚡</a>
+        
+        <div class="d-flex align-items-center order-lg-last ms-2">
+          <button class="btn btn-warning position-relative fw-bold me-2" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+            🛒 Carrito <span id="contadorCarrito" class="badge bg-danger rounded-pill">0</span>
+          </button>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNavegacion">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuNavegacion">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="admin.html" target="_blank">Inventario Admin ↗</a></li>
+            <li class="nav-item"><a class="nav-link" href="contacto.html" target="_blank">Acceso / Registro ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- BANNER PRINCIPAL -->
+    <section class="bg-dark text-white text-center py-5 border-bottom border-warning">
+      <div class="container my-3">
+        <h1 class="display-4 fw-bold">SUPERA TUS LÍMITES</h1>
+        <p class="lead text-secondary">Suplementación de alto rendimiento y equipamiento deportivo para tus objetivos.</p>
+        <a href="#catalogo" class="btn btn-warning btn-lg fw-bold mt-2">Ver Catálogo Completo</a>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO ESTRUCTURADO POR CATEGORÍAS -->
+    <section id="catalogo" class="container my-5">
+      
+      <!-- CATEGORÍA 1: SUPLEMENTOS -->
+      <div class="mb-5">
+        <h3 class="border-bottom border-2 border-warning pb-2 fw-bold text-dark">🧪 Suplementos & Nutrición</h3>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm text-center">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3DtXcfK0dfOp_JgwBEclpJKGkuHUFz30SFo-NRhfrbA&s" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Proteína">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold">Whey Protein Isolate 1kg</h5>
+                <p class="card-text text-muted">$35.990</p>
+                <button type="button" class="btn btn-outline-dark mt-auto fw-bold" onclick="agregarAlCarrito('Whey Protein Isolate 1kg', 35990)">+ Agregar al Carrito</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm text-center">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSKsHjhHWPt-1_piMyzGfbk8ulFjFFsrarSpPccMQjFA&s" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Multivitamínico">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold">Multivitamínico Sport x90 caps</h5>
+                <p class="card-text text-muted">$14.990</p>
+                <button type="button" class="btn btn-outline-dark mt-auto fw-bold" onclick="agregarAlCarrito('Multivitamínico Sport x90 caps', 14990)">+ Agregar al Carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA 2: ROPA DEPORTIVA -->
+      <div class="mb-5">
+        <h3 class="border-bottom border-2 border-warning pb-2 fw-bold text-dark">👕 Ropa Deportiva</h3>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm text-center">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh8LLamIJb3T5xc6M9GesXdYrQ4Yxww78-gfzJeJhRVA&s=10" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Polera Tech">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold">Polera Fit Tech Respirable</h5>
+                <p class="card-text text-muted">$18.990</p>
+                <button type="button" class="btn btn-outline-dark mt-auto fw-bold" onclick="agregarAlCarrito('Polera Fit Tech Respirable', 18990)">+ Agregar al Carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORÍA 3: ARTÍCULOS Y EQUIPAMIENTO -->
+      <div class="mb-5">
+        <h3 class="border-bottom border-2 border-warning pb-2 fw-bold text-dark">🏋️ Artículos y Equipamiento</h3>
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm text-center">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpKcszuhTHQ_EmpK_VbNjl6b6m8hwo1CrJa8etzljhJZ6BGI9QfKmuaTNL&s=10" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Mancuernas">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold">Mancuernas Ajustables</h5>
+                <p class="card-text text-muted">$24.990</p>
+                <button type="button" class="btn btn-outline-dark mt-auto fw-bold" onclick="agregarAlCarrito('Mancuernas Ajustables', 24990)">+ Agregar al Carrito</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card h-100 shadow-sm text-center">
+              <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQlq8yjCNd8DN6vzNfEqVK5a_1m1zzNufAS0HMdv0c6SbS5mLOw-gEHQORoLAT_-0lL0MBGVAH2o4rLbHAhNaYFud9FGQsfOqqQXYoJMIp4y0tb-DWp7Hhm" class="card-img-top" style="height: 200px; object-fit: cover;" alt="Bandas de resistencia">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title fw-bold">Banda Elasticas</h5>
+                <p class="card-text text-muted">$8.990</p>
+                <button type="button" class="btn btn-outline-dark mt-auto fw-bold" onclick="agregarAlCarrito('Banda de Resistencia Alta', 8990)">+ Agregar al Carrito</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  <!-- SECCIÓN DE VIDEO EDUCATIVO (REPRODUCTOR DIRECTO HTML5) -->
+<!-- SECCIÓN DE VIDEO EDUCATIVO LOCAL -->
+<section class="bg-light py-5">
+  <div class="container text-center">
+    <h2 class="mb-3">«Sé Más Fuerte Que Tus Excusas»</h2>
+    <p class="text-muted mb-4">Aprende a complementar tu alimentación de forma inteligente para maximizar tu rendimiento.</p>
+    
+    <div class="ratio ratio-16x9 mx-auto shadow rounded overflow-hidden" style="max-width: 800px;">
+      <video controls class="w-100 h-100">
+        <source src="167490-837077503_medium.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video HTML5.
+      </video>
+    </div>
+  </div>
+</section>
+    <!-- BLOGS EN MODALES -->
+    <section class="container my-5">
+      <h2 class="text-center mb-4">Blog y Consejos Fitness</h2>
+      <div class="row g-4">
+        <article class="col-md-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <span class="badge bg-warning text-dark mb-2">Nutrición</span>
+              <h3 class="card-title h4">¿Cuándo tomar creatina? Mitos y realidades</h3>
+              <p class="card-text">Descubre cómo optimizar su consumo según tus entrenamientos.</p>
+              <button type="button" class="btn btn-outline-dark btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#modalBlog1">Leer artículo completo</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="col-md-6">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body">
+              <span class="badge bg-secondary mb-2">Entrenamiento</span>
+              <h3 class="card-title h4">Guía de ejercicios para armar tu rutina en casa</h3>
+              <p class="card-text">Aprende a estructurar un plan con bandas y mancuernas.</p>
+              <button type="button" class="btn btn-outline-dark btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#modalBlog2">Leer lista de entrenamiento</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODALES DEL CARRITO -->
+  <div class="modal fade" id="modalCarrito" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title fw-bold">🛒 Tu Carrito de Compras</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <ul id="listaCarrito" class="list-group mb-3"></ul>
+          <div class="d-flex justify-content-between fw-bold h5">
+            <span>Total:</span>
+            <span id="totalCarrito">$0</span>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+          <a href="contacto.html" class="btn btn-warning fw-bold">Procesar con Mi Usuario ➔</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODALES DE BLOG -->
+  <div class="modal fade" id="modalBlog1" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title">¿Cuándo tomar creatina?</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Mito:</strong> "Debes tomarla inmediatamente antes de entrenar".</p>
+          <p><strong>Realidad:</strong> Funciona por acumulación muscular. Toma de 3g a 5g diarios todos los días.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalBlog2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title">Rutina en Casa</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li>Sentadillas - 15 repeticiones</li>
+            <li>Push-ups - 12 repeticiones</li>
+            <li>Remo con banda - 15 repeticiones</li>
+            <li>Plancha - 45 segundos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-4 border-top">
+    <div class="container">
+      <p class="mb-0"><strong>FitLab</strong> &copy; 2026 - Tienda de Alto Rendimiento</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="funciones.js"></script>
+</body>
+</html>
