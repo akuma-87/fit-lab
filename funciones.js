@@ -43,3 +43,78 @@ function eliminarDelCarrito(index) {
 
 document.addEventListener("DOMContentLoaded", guardarYActualizarCarrito);
 
+//Stock Critico
+function verificarStockCritico() {
+  const filas = document.querySelectorAll("#tablaInventario tbody tr");
+
+  filas.forEach(fila => {
+    const celdaStock = fila.querySelector(".cant-stock");
+    const celdaEstado = fila.querySelector(".estado-stock");
+
+    if (celdaStock && celdaEstado) {
+      const cantidad = parseInt(celdaStock.textContent.trim(), 10);
+
+      if (cantidad <= 5) {
+        fila.classList.add("table-danger");
+        celdaEstado.innerHTML = `<span class="badge bg-danger">⚠️ Stock Crítico</span>`;
+      } else {
+        celdaEstado.innerHTML = `<span class="badge bg-success">Normal</span>`;
+      }
+    }
+  });
+}
+
+//Gestion de usuario
+//Validacion de correo
+
+function mostrarModalUsuario(titulo, mensaje, esError) {
+  const modalEl = document.getElementById("modalNotificación");
+  const headerEl = document.getElementById("headerNotificacion");
+  const tituloEl = document.getElementById("tituloNotificacion");
+  const cuerpoEl = document.getElementById("cuerpoNotificacion");
+
+  if (modalEl && headerEl && tituloEl && cuerpoEl) {
+    headerEl.className = esError ? "modal-header bg-danger text-white" : "modal-header bg-success text-white";
+    tituloEl.textContent = titulo;
+    cuerpoEl.innerHTML = mensaje;
+
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
+  }
+}
+
+function validarLogin(e) {
+  e.preventDefault();
+  const correo = document.getElementById("loginCorreo").value.trim();
+  const pass = document.getElementById("loginPass").value.trim();
+
+  // Validación: Campos vacíos o sin arroba
+  if (correo === "" || pass === "") {
+    mostrarModalUsuario("⚠️ Error", "Ingresa tu correo y contraseña para continuar.", true);
+  } else if (!correo.includes("@")) {
+    mostrarModalUsuario("⚠️ Correo Inválido", "El correo debe incluir un símbolo de arroba (@).", true);
+  } else {
+    mostrarModalUsuario("¡Bienvenido!", `Sesión iniciada exitosamente con <strong>${correo}</strong>.`, false);
+    document.getElementById("formLogin").reset();
+  }
+}
+
+function validarRegistro(e) {
+  e.preventDefault();
+  const nombre = document.getElementById("regNombre").value.trim();
+  const correo = document.getElementById("regCorreo").value.trim();
+  const pass = document.getElementById("regPass").value.trim();
+
+  // Validación: Campos vacíos, falta de '@' o clave muy corta
+  if (nombre === "" || correo === "" || pass === "") {
+    mostrarModalUsuario("⚠️ Error de Registro", "Por favor completa todos los campos requeridos.", true);
+  } else if (!correo.includes("@")) {
+    mostrarModalUsuario("⚠️ Correo Inválido", "Ingresa un formato de correo válido que contenga <strong>@</strong>.", true);
+  } else if (pass.length < 6) {
+    mostrarModalUsuario("⚠️ Clave Débili", "La contraseña debe tener un mínimo de 6 caracteres.", true);
+  } else {
+    mostrarModalUsuario("¡Registro Exitoso!", `Usuario <strong>${nombre}</strong> registrado con éxito.`, false);
+    document.getElementById("formRegister").reset();
+  }
+
+}
