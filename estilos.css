@@ -1,0 +1,25 @@
+/* Estilos externos personalizados */
+.bg-fitlab {
+  background-color: #121212;
+}
+
+.text-fitlab {
+  color: #ff5722;
+}
+
+.btn-fitlab {
+  background-color: #ff5722;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-fitlab:hover {
+  background-color: #e04815;
+  color: #ffffff;
+}
+
+.stock-critico {
+  background-color: #f8d7da !important;
+  color: #842029;
+  font-weight: bold;
+}
